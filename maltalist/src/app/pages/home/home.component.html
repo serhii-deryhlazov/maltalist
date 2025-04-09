@@ -1,0 +1,13 @@
+
+<main class="container">
+    <h2>Latest Listings</h2>
+    <div class="grid">
+        <div class="listing-card" *ngFor="let item of listings">
+        <div class="image-placeholder"></div>
+        <div class="info">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.price }} €</p>
+        </div>
+        </div>
+    </div>
+</main>

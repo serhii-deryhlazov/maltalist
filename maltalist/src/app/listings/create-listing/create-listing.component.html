@@ -1,0 +1,15 @@
+<form (ngSubmit)="onSubmit()" #listingForm="ngForm" class="create-listing-form">
+  <label for="title">Title</label>
+  <input id="title" name="title" [(ngModel)]="listing.title" required />
+
+  <label for="description">Description</label>
+  <textarea id="description" name="description" [(ngModel)]="listing.description" required></textarea>
+
+  <label for="price">Price</label>
+  <input id="price" name="price" [(ngModel)]="listing.price" type="number" required />
+
+  <label for="image">Image URL</label>
+  <input id="image" name="image" [(ngModel)]="listing.imageUrl" type="text" />
+
+  <button type="submit" [disabled]="!listingForm.form.valid">Create Listing</button>
+</form>

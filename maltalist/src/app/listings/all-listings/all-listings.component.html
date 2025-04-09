@@ -1,0 +1,21 @@
+<div class="container">
+    <h2>All Listings</h2>
+  
+    <input
+      type="text"
+      placeholder="Search items..."
+      [(ngModel)]="searchTerm"
+      class="search-input"
+    />
+  
+    <div class="grid">
+      <div class="listing-card" *ngFor="let item of filteredListings">
+        <div class="image-placeholder"></div>
+        <div class="info">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.price }} €</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  

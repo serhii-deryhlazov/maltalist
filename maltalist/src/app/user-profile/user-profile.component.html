@@ -1,0 +1,17 @@
+<div class="profile-container">
+    <h2>Your Profile</h2>
+    <div class="user-info">
+        <p><strong>Name:</strong> {{ user.name }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Location:</strong> {{ user.location }}</p>
+    </div>
+
+    <h3>Your Listings</h3>
+    <div *ngFor="let listing of user.listings" class="listing-card">
+        <h4>{{ listing.title }}</h4>
+        <p>{{ listing.description }}</p>
+        <span class="price">${{ listing.price }}</span>
+        <a [routerLink]="['/listings', listing.id]" class="details-link">View Details</a>
+    </div>
+</div>
+  
