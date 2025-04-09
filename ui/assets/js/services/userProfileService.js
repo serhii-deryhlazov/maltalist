@@ -1,15 +1,10 @@
-// assets/js/services/userProfileService.js
-function UserProfileService(httpService) {
-    this.getUserProfile = function(userId) {
-        // Replace with actual URL or data source for user profile
-        return httpService.get(`api/user-profile/${userId}`);
-    };
+import { HttpService } from './services/httpService.js';
 
-    this.updateUserProfile = function(userId, userData) {
-        // Replace with actual URL or data source for updating user profile
-        return httpService.post(`api/user-profile/${userId}`, userData);
-    };
+class UserProfileService {
+  static async getUserProfile() {
+    const url = `${API_URL}/profile`;
+    return await HttpService.get(url);
+  }
 }
 
-// Usage: Create instance of UserProfileService
-const userProfileService = new UserProfileService(httpService);
+export { UserProfileService };

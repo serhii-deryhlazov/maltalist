@@ -1,10 +1,10 @@
-// assets/js/services/homeService.js
-function HomeService(httpService) {
-    this.getHomeData = function() {
-        const url = 'home-data'; // Append this to the base URL
-        return httpService.get(url);
-    };
+import { HttpService } from './services/httpService.js';
+
+class HomeService {
+  static async getHomeData() {
+    const url = `${API_URL}/home/home-data`;
+    return await HttpService.get(url);
+  }
 }
 
-// Usage: Create instance of HomeService
-const homeService = new HomeService(httpService);
+export { HomeService };

@@ -1,15 +1,15 @@
-// assets/js/services/listingsService.js
-function ListingsService(httpService) {
-    this.getAllListings = function() {
-        // Replace with actual URL or data source for all listings
-        return httpService.get('api/listings');
-    };
+import { HttpService } from './services/httpService.js';
 
-    this.getListingById = function(id) {
-        // Replace with actual URL or data source for a single listing
-        return httpService.get(`api/listings/${id}`);
-    };
+class ListingsService {
+  static async getAllListings() {
+    const url = `${API_URL}/listings`;
+    return await HttpService.get(url);
+  }
+
+  static async getListingById(id) {
+    const url = `${API_URL}/listings/${id}`;
+    return await HttpService.get(url);
+  }
 }
 
-// Usage: Create instance of ListingsService
-const listingsService = new ListingsService(httpService);
+export { ListingsService };

@@ -1,10 +1,10 @@
-// assets/js/services/createListingService.js
-function CreateListingService(httpService) {
-    this.createListing = function(listingData) {
-        // Replace with actual URL or data source for creating a listing
-        return httpService.post('api/create-listing', listingData);
-    };
+import { HttpService } from './services/httpService.js';
+
+class CreateListingService {
+  static async createListing(data) {
+    const url = `${API_URL}/create`;
+    return await HttpService.post(url, data);
+  }
 }
 
-// Usage: Create instance of CreateListingService
-const createListingService = new CreateListingService(httpService);
+export { CreateListingService };
