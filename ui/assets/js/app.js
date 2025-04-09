@@ -45,9 +45,54 @@ $(document).ready(function() {
     }
 
     function loadCreateListingPage() {
-        // You can implement similar functionality for the create listing page
-        $('#content').html('<h1>Create Listing</h1><p>Form will be here</p>');
-    }
+        const createListingForm = `
+            <h1>Create Listing</h1>
+            <form id="createListingForm">
+                <div>
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div>
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" required></textarea>
+                </div>
+                <div>
+                    <label for="price">Price:</label>
+                    <input type="number" id="price" name="price" required>
+                </div>
+                <div>
+                    <label for="category">Category:</label>
+                    <input type="text" id="category" name="category" required>
+                </div>
+                <button type="submit">Submit Listing</button>
+            </form>
+            <div id="formStatus"></div>
+        `;
+    
+        $('#content').html(createListingForm);
+    
+        // Handle form submission
+        $('#createListingForm').on('submit', function(e) {
+            e.preventDefault();  // Prevent form from submitting the traditional way
+    
+            const listingData = {
+                title: $('#title').val(),
+                description: $('#description').val(),
+                price: $('#price').val(),
+                category: $('#category').val()
+            };
+    
+            // Call the service to submit the listing (replace with actual service call)
+            listingsService.createListing(listingData)
+                .then(response => {
+                    $('#formStatus').html('<p>Listing created successfully!</p>');
+                    $('#createListingForm')[0].reset();  // Reset form
+                })
+                .catch(error => {
+                    $('#formStatus').html('<p>Error creating listing. Please try again.</p>');
+                });
+        });
+    }    
 
     function loadUserProfilePage() {
         userProfileService.getUserProfile(1)  // Assume userId = 1
