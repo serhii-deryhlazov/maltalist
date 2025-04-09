@@ -1,8 +1,8 @@
 // assets/js/services/homeService.js
 function HomeService(httpService) {
     this.getHomeData = function() {
-        // Replace with actual URL or data source for home content
-        return httpService.get('api/home-data'); 
+        const url = 'home-data'; // Append this to the base URL
+        return httpService.get(url);
     };
 }
 

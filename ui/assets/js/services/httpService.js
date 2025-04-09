@@ -2,7 +2,8 @@
 function HttpService() {
     // Generic function to make GET requests
     this.get = function(url) {
-        return fetch(url)
+        const apiUrl = Config.API_BASE_URL + url; // Use the base URL from config
+        return fetch(apiUrl)
             .then(response => response.json())
             .catch(error => {
                 console.error('HTTP GET request failed:', error);
@@ -10,9 +11,10 @@ function HttpService() {
             });
     };
 
-    // You can add more methods for POST, PUT, DELETE, etc., if needed
+    // POST request example
     this.post = function(url, data) {
-        return fetch(url, {
+        const apiUrl = Config.API_BASE_URL + url; // Use the base URL from config
+        return fetch(apiUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
